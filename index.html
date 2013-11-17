@@ -1,0 +1,88 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Hash Table Benchmarks (2013) &mdash;    documentation</title>
+    
+    <link rel="stylesheet" href="static/pyramid.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <link rel="top" title="   documentation" href="#" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Neuton&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Nobile:regular,italic,bold,bolditalic&amp;subset=latin" type="text/css" media="screen" charset="utf-8" />
+<!--[if lte IE 6]>
+<link rel="stylesheet" href="static/ie6.css" type="text/css" media="screen" charset="utf-8" />
+<![endif]-->
+
+  </head>
+  <body>
+
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+
+
+         <li>Random notes.</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body">
+            
+  <div class="section" id="hash-table-benchmarks-2013">
+<h1>Hash Table Benchmarks (2013)<a class="headerlink" href="#hash-table-benchmarks-2013" title="Permalink to this headline">¶</a></h1>
+<p>Recently, I found <a class="reference external" href="http://incise.org/hash-table-benchmarks.html">Nick Welch’s Hash Table Benchmark</a>, in which he compare the most noteable C/C++ hash table implementations.
+It was curious to know performance of different implementations of the hash tables with recent librarys versions, and see the changes after 4 years. Of course the main interest is Google hashs tables.</p>
+<p>Unfortunately, I have not so powerfull notebook with only 3Gb RAM for test, by the time of writing of this note, so I had to change some test&#8217;s vars, to fit my hardware.
+I removed out of the test Ruby and Qhash, because I wanted a more of clear graphs.</p>
+<blockquote>
+<div><p><strong>Sequential Inserts: Execution Time (integers)</strong></p>
+<blockquote>
+<div><em>Original Nick&#8217;s benchmark with values up to 16 000 000.</em></div></blockquote>
+</div></blockquote>
+<img alt="Sequential Inserts: Execution Time (integers) (2009)" src="images/nik-seq-int-ins.png" />
+<img alt="Sequential Inserts: Execution Time (integers) (2013)" src="images/my-seq-int-ins.png" />
+<p>The main surprise caused performance of the Boosts. Unfortunately due to the fact that there was no time to check out other versions of the Boost, it is not clear whether this is a result of regression in the performance of the current version.</p>
+<p>Also I want to note that with Random strings inserts operations, which consume more memory, with Python test, I ran out of memory at 14M, that cause using SWAP up to 100Mb.</p>
+<p>It is clearly seen that Google&#8217;s sparse_hash_map is significantly accelerated, while memory consumption not changed.</p>
+<blockquote>
+<div><strong>Random Inserts: Execution Time (strings)</strong></div></blockquote>
+<img alt="Random Inserts: Execution Time (strings) (2013)" src="images/my-random-str-ins.png" />
+<p><a class="reference external" href="charts.html">Complete Hash Table Benchmark can be found here</a></p>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+
+
+         <li>Random notes.</li> 
+      </ul>
+    </div>
+    <div class="footer">
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2b3.
+    </div>
+  </body>
+</html>
